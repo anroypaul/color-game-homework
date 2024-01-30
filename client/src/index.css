@@ -1,0 +1,83 @@
+    * {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .game-grid-container {
+        display: grid;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .box {
+        background-color: #fff;
+        color: #333;
+        text-align: center;
+        padding: 2rem;
+        height: 15vh;
+        border: 1px solid #333;
+        margin: 0.1rem;
+        min-width: 15vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+
+
+    .box:hover {
+        opacity: 50%;
+    }
+
+    .d {
+        cursor: default;
+    }
+
+    .d:hover {
+        opacity: 100%;
+    }
+
+    .a {
+        grid-column: col / span 2;
+        grid-row: row 1;
+    }
+
+    .b {
+        grid-column: col 3 / span 2;
+        grid-row: row 1;
+    }
+
+    .c {
+        grid-column: col / span 1;
+        grid-row: row 2;
+    }
+
+    .d {
+        grid-column: col 2 / span 2;
+        grid-row: row 2;
+    }
+
+    .e {
+        grid-column: col 4 / span 1;
+        grid-row: row 2;
+    }
+
+    .d {
+        grid-column: col 2 / span 2;
+        grid-row: row 2;
+    }
+
+    .f {
+        grid-column: col / span 2;
+        grid-row: row 3;
+    }
+
+    .g {
+        grid-column: col 3 / span 2;
+        grid-row: row 3;
+    }
