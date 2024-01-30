@@ -21,6 +21,35 @@ const GamePage = () => {
     console.log(index);
   }
 
+  const renderColorRectangles = () => {
+    return gameData?.game.currentGameColors.map((color, index) => (
+      <Rectangle
+        onRectangleClick={handleRectangleClick}
+        key={`${color.red}+${color.green}+${color.blue}`}
+        index={index}
+        red={color.red}
+        green={color.green}
+        blue={color.blue}
+      />
+    ));
+  };
+
+  const renderWinningColor = () => {
+    const color = gameData.game.currentGameColors.find(
+      (color) => color.winningIndex
+    );
+    if (color) {
+      return (
+        <div
+          key={`${color.red}+${color.green}+${color.blue}+w`}
+          className="box d"
+        >
+          FIND THIS COLOR rgb({color.red}, {color.green}, {color.blue})
+        </div>
+      );
+    }
+  };
+
   return (
     <Box alignItems="center" justifyContent="center" display="grid">
       <Typography variant="h4" textAlign={'center'}>
@@ -34,38 +63,8 @@ const GamePage = () => {
         alignItems="center"
         justifyContent="center"
       >
-        {gameData.game.currentGameColors.map((color, index) => {
-          if (color.winningIndex) {
-            return (
-              <>
-                <Rectangle
-                  onRectangleClick={handleRectangleClick}
-                  key={`${color.red}+${color.green}+${color.blue}`}
-                  index={index}
-                  red={color.red}
-                  green={color.green}
-                  blue={color.blue}
-                />
-                <div
-                  key={`${color.red}+${color.green}+${color.blue}+w`}
-                  className="box d"
-                >
-                  FIND THIS COLOR rgb({color.red}, {color.green}, {color.blue})
-                </div>
-              </>
-            );
-          }
-          return (
-            <Rectangle
-              onRectangleClick={handleRectangleClick}
-              key={`${color.red}+${color.green}+${color.blue}`}
-              index={index}
-              red={color.red}
-              green={color.green}
-              blue={color.blue}
-            />
-          );
-        })}
+        {renderColorRectangles()}
+        {renderWinningColor()}
       </Box>
       <Box textAlign={'right'}>
         <Typography variant="body1">

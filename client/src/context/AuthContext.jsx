@@ -2,7 +2,7 @@ import * as React from 'react';
 import { API_RESOURCE } from '../utils/api';
 import { decodeValue, encodeValue } from '../utils';
 import cookie from 'js-cookie';
-
+import { PropTypes } from 'prop-types';
 const authContext = React.createContext();
 
 function useAuth() {
@@ -59,10 +59,13 @@ function useAuth() {
       // });
     },
     async logout() {
+      // return new Promise((resolve) => {
       await setAuthName('');
       await setAuthToken('');
       await setAuthed(false);
       return;
+      // resolve();
+      // });
     },
   };
 }
@@ -75,3 +78,7 @@ export function AuthProvider({ children }) {
 export default function AuthConsumer() {
   return React.useContext(authContext);
 }
+
+AuthProvider.propTypes = {
+  children: PropTypes.element.isRequired,
+};

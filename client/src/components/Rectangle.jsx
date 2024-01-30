@@ -1,3 +1,5 @@
+import { PropTypes } from '@mui/material';
+
 const Rectangle = ({ index, red, green, blue, onRectangleClick }) => {
   function handleClick() {
     onRectangleClick(index);
@@ -18,3 +20,11 @@ const Rectangle = ({ index, red, green, blue, onRectangleClick }) => {
 };
 
 export default Rectangle;
+
+Rectangle.propTypes = {
+  index: PropTypes.number.isRequired,
+  red: PropTypes.number.isRequired,
+  green: PropTypes.number.isRequired,
+  blue: PropTypes.number.isRequired,
+  onRectangleClick: PropTypes.func.isRequired,
+};
