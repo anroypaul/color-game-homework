@@ -1,8 +1,9 @@
-import { PropTypes } from '@mui/material';
+import { PropTypes } from 'prop-types';
 
 const Rectangle = ({ index, red, green, blue, onRectangleClick }) => {
-  function handleClick() {
-    onRectangleClick(index);
+  function handleClick(event) {
+    onRectangleClick(event, index)
+    // onRectangleClick(index);
   }
 
   function indexToLetter(index) {
@@ -14,6 +15,7 @@ const Rectangle = ({ index, red, green, blue, onRectangleClick }) => {
     <div
       onClick={handleClick}
       className={`box ${indexToLetter(index)}`}
+      name={indexToLetter(index)}
       style={{ backgroundColor: `rgba(${red},${green},${blue},1)` }}
     ></div>
   );

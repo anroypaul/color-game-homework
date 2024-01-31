@@ -3,7 +3,10 @@ import Nav from './components/Nav';
 import RequireAuth from './components/RequireAuth';
 
 import HomePage from './pages/HomePage';
-import GamePage, { loader as gameLoader } from './pages/GamePage';
+import GamePage, {
+  loader as gameLoader,
+  action as gameAction,
+} from './pages/GamePage';
 import LoginPage from './pages/LoginPage';
 import ErrorPage from './pages/ErrorPage';
 
@@ -18,6 +21,7 @@ const router = createBrowserRouter([
       {
         path: '/game',
         loader: gameLoader,
+        action: gameAction,
         Component: () => (
           <RequireAuth>
             <GamePage />
